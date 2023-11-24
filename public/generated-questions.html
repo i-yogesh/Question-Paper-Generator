@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Generated Questions</title>
+  <style>
+    body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.container {
+  max-width: 800px; /* Set a maximum width */
+  width: 100%; /* Make the container responsive */
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  margin: auto; /* Center the container */
+}
+
+h1 {
+  color: #333;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  background-color: #e0e0e0;
+  margin: 10px 0;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+  text-align: left; /* Align text to the left */
+}
+
+li:hover {
+  background-color: #d0d0d0;
+}
+
+#result {
+  margin-top: 20px;
+  font-weight: bold;
+}
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Generated Questions</h1>
+    <div id="result"></div>
+  </div>
+  <script>
+    // Paste the contents of generated-questions.js here
+    const questionsData = [
+      {
+        "question": "What is the capital of France?",
+        "subject": "Geography",
+        "topic": "Countries and Capitals",
+        "difficulty": "Easy",
+        "marks": 5
+      },
+      {
+        "question": "Who wrote 'Romeo and Juliet'?",
+        "subject": "Literature",
+        "topic": "Shakespearean Plays",
+        "difficulty": "Medium",
+        "marks": 10
+      },
+      {
+        "question": "What is the chemical symbol for gold?",
+        "subject": "Chemistry",
+        "topic": "Elements",
+        "difficulty": "Easy",
+        "marks": 5
+      },
+      {
+        "question": "What is the formula for calculating the area of a circle?",
+        "subject": "Mathematics",
+        "topic": "Geometry",
+        "difficulty": "Medium",
+        "marks": 10
+      },
+      {
+        "question": "Who is known as the 'Father of Computer Science'?",
+        "subject": "Computer Science",
+        "topic": "Pioneers in Computer Science",
+        "difficulty": "Hard",
+        "marks": 20
+      },
+      {
+        "question": "In which year did World War II end?",
+        "subject": "History",
+        "topic": "World War II",
+        "difficulty": "Medium",
+        "marks": 10
+      },
+      {
+        "question": "What is the powerhouse of the cell?",
+        "subject": "Biology",
+        "topic": "Cell Biology",
+        "difficulty": "Easy",
+        "marks": 5
+      },
+      {
+        "question": "What is the capital of Japan?",
+        "subject": "Geography",
+        "topic": "Countries and Capitals",
+        "difficulty": "Easy",
+        "marks": 5
+      },
+      {
+        "question": "Who painted the Mona Lisa?",
+        "subject": "Art",
+        "topic": "Famous Paintings",
+        "difficulty": "Medium",
+        "marks": 10
+      },
+      {
+        "question": "What is the boiling point of water in Celsius?",
+        "subject": "Chemistry",
+        "topic": "Physical Properties of Water",
+        "difficulty": "Easy",
+        "marks": 5
+      },
+      {
+        "question": "Solve the equation: 2x + 5 = 15",
+        "subject": "Mathematics",
+        "topic": "Algebra",
+        "difficulty": "Medium",
+        "marks": 10
+      },
+      {
+        "question": "Who developed the theory of relativity?",
+        "subject": "Physics",
+        "topic": "Theory of Relativity",
+        "difficulty": "Hard",
+        "marks": 20
+      },
+      {
+        "question": "What is the official language of Brazil?",
+        "subject": "Languages",
+        "topic": "Brazilian Languages",
+        "difficulty": "Easy",
+        "marks": 5
+      },
+      {
+        "question": "Name the largest planet in our solar system.",
+        "subject": "Astronomy",
+        "topic": "Planets",
+        "difficulty": "Easy",
+        "marks": 5
+      },
+      {
+        "question": "Who discovered penicillin?",
+        "subject": "Medicine",
+        "topic": "History of Medicine",
+        "difficulty": "Medium",
+        "marks": 10
+      },
+      {
+        "question": "What is the main function of the lungs?",
+        "subject": "Biology",
+        "topic": "Human Anatomy",
+        "difficulty": "Easy",
+        "marks": 5
+      },
+      {
+        "question": "Who wrote 'To Kill a Mockingbird'?",
+        "subject": "Literature",
+        "topic": "Modern American Literature",
+        "difficulty": "Medium",
+        "marks": 10
+      },
+      {
+        "question": "What is the chemical formula for water?",
+        "subject": "Chemistry",
+        "topic": "Chemical Formulas",
+        "difficulty": "Easy",
+        "marks": 5
+      },
+      {
+        "question": "Simplify the expression: 3x + 2x - 5",
+        "subject": "Mathematics",
+        "topic": "Algebra",
+        "difficulty": "Medium",
+        "marks": 10
+      },
+      {
+        "question": "Who is known as the 'Queen of Soul'?",
+        "subject": "Music",
+        "topic": "Soul Music",
+        "difficulty": "Easy",
+        "marks": 5
+      },
+      {
+        "question": "What is the significance of the Magna Carta?",
+        "subject": "History",
+        "topic": "Medieval History",
+        "difficulty": "Hard",
+        "marks": 20
+      }
+    ];
+
+    function displayQuestions() {
+      const totalMarks = 100; 
+      const easyMarks = 25;
+      const mediumMarks = 50; 
+      const hardMarks = 25; 
+
+
+      const easyQuestions = filterQuestionsByDifficulty(questionsData, 'Easy', easyMarks);
+      const mediumQuestions = filterQuestionsByDifficulty(questionsData, 'Medium', mediumMarks);
+      const hardQuestions = filterQuestionsByDifficulty(questionsData, 'Hard', hardMarks);
+
+      const resultDiv = document.getElementById('result');
+      resultDiv.innerHTML = `<p>Easy Difficulty: ${easyMarks} Marks</p>
+                           <ul>${displayQuestionsList(easyQuestions)}</ul>
+                           <p>Medium Difficulty: ${mediumMarks} Marks</p>
+                           <ul>${displayQuestionsList(mediumQuestions)}</ul>
+                           <p>Hard Difficulty: ${hardMarks} Marks</p>
+                           <ul>${displayQuestionsList(hardQuestions)}</ul>`;
+    }
+
+    function filterQuestionsByDifficulty(questions, difficulty, marks) {
+      const filteredQuestions = questions.filter((question) => {
+        return question.difficulty === difficulty;
+      });
+
+      
+      shuffleArray(filteredQuestions);
+
+      let selectedQuestions = [];
+      let currentMarks = 0;
+
+      for (const question of filteredQuestions) {
+        if (currentMarks + question.marks <= marks) {
+          selectedQuestions.push(question);
+          currentMarks += question.marks;
+        }
+      }
+
+      return selectedQuestions;
+    }
+
+    function displayQuestionsList(questions) {
+      return questions.map((question) => `<li>${question.question} - ${question.marks} Marks</li>`).join('');
+    }
+
+    function shuffleArray(array) {
+      for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+      }
+    }
+
+    
+    document.addEventListener('DOMContentLoaded', displayQuestions);
+  </script>
+
+<script src="generated-questions.js"></script>
+
+</body>
+
+</html>
